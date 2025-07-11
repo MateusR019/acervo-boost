@@ -1,0 +1,19 @@
+{
+  "name": "oferta-premium-lp",
+  "version": "1.0.0",
+  "description": "Landing page para a oferta Acervo Premium.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "landing-page",
+    "marketing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
