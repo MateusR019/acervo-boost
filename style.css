@@ -426,21 +426,14 @@ a {
 
 /* --- CTA FINAL --- */
 #final-cta {
-    background: radial-gradient(ellipse at center, rgba(191, 0, 255, 0.4), var(--preto-fundo) 60%);
+    padding-bottom: 40px; /* Add some space for the button */
 }
 
-.cta-content h2 {
-    font-size: 2.8rem;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    font-weight: 900;
-    background: linear-gradient(90deg, var(--verde-neon), var(--roxo-neon));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    animation: gradient-move 5s ease infinite;
-    background-size: 200% 200%;
+.cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 .final-button {
@@ -848,5 +841,180 @@ footer {
 
     .guarantee-content h2 {
         font-size: clamp(1.8rem, 7vw, 2.2rem);
+    }
+}
+/* --- NEW CTA CARD --- */
+.outer-new {
+  width: 550px; /* Aumentado para melhor formatação */
+  height: 300px; /* Aumentado para melhor formatação */
+  border-radius: 15px;
+  padding: 2px;
+  background: radial-gradient(circle 300px at 0% 0%, var(--roxo-neon), var(--preto-fundo));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot-new {
+  width: 7px;
+  aspect-ratio: 1;
+  position: absolute;
+  box-shadow: 0 0 15px var(--verde-neon);
+  border-radius: 100px;
+  z-index: 2;
+  right: 10%;
+  top: 10%;
+  animation: moveDot-new 8s linear infinite,
+    changeColor-new 8s linear infinite;
+}
+
+@keyframes moveDot-new {
+  0%,
+  100% {
+    top: calc(10% - 3.5px);
+    right: calc(10% - 3.5px);
+  }
+  25% {
+    top: calc(10% - 3.5px);
+    right: calc(90% - 3.5px);
+  }
+  50% {
+    top: calc(90% - 3.5px);
+    right: calc(90% - 3.5px);
+  }
+  75% {
+    top: calc(90% - 3.5px);
+    right: calc(10% - 3.5px);
+  }
+}
+
+@keyframes changeColor-new {
+  0%, 25% {
+    background-color: var(--roxo-neon);
+    box-shadow: 0 0 15px var(--roxo-neon);
+  }
+  25.1%, 50% {
+    background-color: var(--roxo-neon);
+    box-shadow: 0 0 15px var(--roxo-neon);
+  }
+  50.1%, 75% {
+    background-color: var(--verde-neon);
+    box-shadow: 0 0 15px var(--verde-neon);
+  }
+  75.1%, 100% {
+    background-color: var(--verde-neon);
+    box-shadow: 0 0 15px var(--verde-neon);
+  }
+}
+
+.card-new {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  border: solid 1px #202222;
+  background: radial-gradient(circle 280px at 0% 0%, #1a1a1a, var(--preto-fundo));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  color: var(--branco-texto);
+}
+.ray-new {
+  width: 220px;
+  height: 45px;
+  border-radius: 100px;
+  position: absolute;
+  background-color: var(--verde-neon);
+  opacity: 0.2;
+  box-shadow: 0 0 50px var(--verde-neon);
+  filter: blur(10px);
+  transform-origin: 10%;
+  top: 0%;
+  left: 0;
+  transform: rotate(40deg);
+}
+
+.card-new .text-new {
+  font-weight: 900;
+  font-size: 2.8rem;
+  text-align: center;
+  line-height: 1.3;
+  background: linear-gradient(45deg, var(--verde-neon) 20%, var(--branco-texto) 50%, var(--roxo-neon) 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 0 25px;
+}
+
+.card-new .subtext-new {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 15px;
+    color: var(--branco-texto);
+}
+
+.line-new {
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background-color: #2c2c2c;
+}
+.topl-new {
+  top: 10%;
+  background: linear-gradient(90deg, var(--roxo-neon) 30%, var(--preto-fundo) 70%);
+}
+.bottoml-new {
+  bottom: 10%;
+  background: linear-gradient(90deg, var(--preto-fundo) 30%, var(--verde-neon) 70%);
+}
+.leftl-new {
+  left: 10%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--roxo-neon) 30%, var(--preto-fundo) 70%);
+}
+.rightl-new {
+  right: 10%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--preto-fundo) 30%, var(--verde-neon) 70%);
+}
+
+/* --- Ajuste no botão final --- */
+#final-cta .final-button {
+    margin-top: 0; /* Remove a margem superior que não é mais necessária */
+}
+
+/* --- RESPONSIVIDADE PARA O NOVO CTA CARD --- */
+@media (max-width: 768px) {
+    .outer-new {
+        width: 100%;
+        max-width: 370px; /* Ajuste fino da largura */
+        height: 240px;    /* Altura fixa para consistência */
+    }
+
+    .card-new {
+        padding: 15px; /* Reduz o padding para dar mais espaço ao texto */
+    }
+
+    .card-new .text-new {
+        font-size: 1.4rem; /* Tamanho de fonte reduzido e fixo para mobile */
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+
+    .card-new .subtext-new {
+        font-size: 1.1rem; /* Tamanho de fonte reduzido e fixo para mobile */
+        margin-top: 15px;
+    }
+
+    #final-cta .final-button {
+        width: 90%;
+        max-width: 370px;
+        padding: 15px;
+        font-size: 1rem;
     }
 }
